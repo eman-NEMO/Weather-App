@@ -1,103 +1,60 @@
-import Image from "next/image";
+"use client";
+import HoursCard from "@/components/common/card-item-hours";
+import useGetWeatherData from "./_hooks/weather-hook";
+import { Input } from "@/components/ui/input";
+import DaysCard from "@/components/common/card-item-days";
+import WeatherCard from "@/components/common/cart-item-weather";
+import DetectLocation from "@/components/common/auto-detect-loc";
+import CardCity from '@/components/common/card-city-detail'
+import FavItem from "./favourate/page";
+import { ModeToggle } from "@/components/common/mood-toggle";
+import { Heart } from "lucide-react";
 
+import { useRouter } from "next/navigation";
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    const router = useRouter();
+  const { payload, isLoading } = useGetWeatherData();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  if (isLoading) return <p>Loading...</p>;
+  return (
+
+    <>
+    <div>
+   <div className="flex  mt-5">
+        <div className="ms-auto me-28 flex space-x-4 ">
+          <DetectLocation/>
+         <ModeToggle/>
+         <Heart   onClick={() => router.push("/favourate")} size={30} className="mt-1 fill-blue-2 cursor-pointer "/>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
+    <div className="flex flex-col md:flex-row flex-wrap w-full container">
+  {/* الجزء اليسار */}
+
+  <div className="xl:w-[65%] lg:w-[65%] md:w-full sm:w-full px-4">
+    <div className="mt-10">
+      <Input className="bg-zinc-200 rounded-2xl dark:bg-blue-2" placeholder="Search ...... " />
+    </div>
+    <CardCity data={payload} />
+    
+  </div>
+
+  {/* الجزء اليمين */}
+  <div className="mt-24  xl:w-[35%] lg:w-[35%] md:w-full sm:w-full px-4">
+      
+   
+    <DaysCard data={payload} />
+  </div>
+  <div className="mt-10" >
+     <div className="flex flex-wrap space-x-4 mb-20">
+       <HoursCard data={payload} />
+    
+      <WeatherCard data={payload} />
+     </div>
+    </div>
+</div>
+
+   </div>
+  
+   </>
   );
 }
