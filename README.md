@@ -7,26 +7,25 @@ A modern, scalable, and secure weather web application built with **Next.js** an
 ## 🔧 Tech Stack & Architecture
 
 - **Framework:** [Next.js](https://nextjs.org/) (Latest Stable)
+- **DataBase:** SupaBase integrated wih Weather API
 - **Language:** TypeScript
-- **State Management:** Redux Toolkit / Zustand / Context API
-- **Data Fetching:** React Query / Axios
-- **SSR / SSG:** Optimized where appropriate
-- **Styling:** Tailwind CSS (or styled-components if chosen)
+- **Data Fetching:** React Query 
+- **SSR / SSG:** Optimized 
+- **Styling:** Tailwind CSS 
 - **Containerization:** Docker
 - **Caching & Load Balancing:** CDN (e.g. Cloudflare) with load-balancing strategy
 - **Security:** 64-bit custom encryption for API data
-
+--**SupaBase:** Authentication and handle favorites
 ---
 
 ## 🖼️ UI Features
 
-- Fully responsive UI replicating the provided **Figma Design**
 - Reusable Components:
   - Weather Cards
   - Search Bar
   - Weather Details
   - Favorites List
-- Dark / Light Theme Support (if provided)
+- Dark / Light Theme Support 
 
 ---
 
@@ -35,7 +34,7 @@ A modern, scalable, and secure weather web application built with **Next.js** an
 ### 🔸 Home Page
 - Auto-detects user location via **Geolocation API**
 - Displays weather conditions: temperature, wind, humidity
-- Offline caching via **IndexedDB** or **localStorage**
+- Offline caching via **IndexedDB** and **localStorage**
 
 ### 🔸 City Search
 - Fuzzy search for global cities
@@ -71,7 +70,7 @@ A modern, scalable, and secure weather web application built with **Next.js** an
 
 - Unit Testing: **Jest** + **React Testing Library**
 - Integration Testing: **Cypress** or **Playwright**
-- Minimum **85%** Code Coverage (with reports)
+- **85%** Code Coverage (with reports)
 - Code Quality enforced with ESLint & Prettier
 
 ---
@@ -85,15 +84,4 @@ A modern, scalable, and secure weather web application built with **Next.js** an
 - ✅ Load Testing Reports using **JMeter** or **k6**
 
 ---
-
-## 📦 Deliverables
-
-- ✅ GitHub Repository with full source code
-- ✅ Clean README with architecture & features
-- ✅ Working Demo / Screenshots
-- ✅ Code Coverage Report
-- ✅ Encryption/Decryption Implementation + Notes
-- ✅ Postman / Swagger API Collection
-- ✅ Load Testing Report
-- ✅ Code Review Checklist
 
