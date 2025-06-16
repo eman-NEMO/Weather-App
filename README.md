@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌦️ Next.js Weather App
 
-## Getting Started
+A modern, scalable, and secure weather web application built with **Next.js** and **TypeScript** that provides real-time weather updates, user authentication, offline support, and encrypted API communication. This project is optimized for performance and designed to handle **100k concurrent users**.
 
-First, run the development server:
+---
 
+## 🔧 Tech Stack & Architecture
+
+- **Framework:** [Next.js](https://nextjs.org/) (Latest Stable)
+- **Language:** TypeScript
+- **State Management:** Redux Toolkit / Zustand / Context API
+- **Data Fetching:** React Query / Axios
+- **SSR / SSG:** Optimized where appropriate
+- **Styling:** Tailwind CSS (or styled-components if chosen)
+- **Containerization:** Docker
+- **Caching & Load Balancing:** CDN (e.g. Cloudflare) with load-balancing strategy
+- **Security:** 64-bit custom encryption for API data
+
+---
+
+## 🖼️ UI Features
+
+- Fully responsive UI replicating the provided **Figma Design**
+- Reusable Components:
+  - Weather Cards
+  - Search Bar
+  - Weather Details
+  - Favorites List
+- Dark / Light Theme Support (if provided)
+
+---
+
+## 🌍 Core Features
+
+### 🔸 Home Page
+- Auto-detects user location via **Geolocation API**
+- Displays weather conditions: temperature, wind, humidity
+- Offline caching via **IndexedDB** or **localStorage**
+
+### 🔸 City Search
+- Fuzzy search for global cities
+- Displays weather data for searched cities
+
+### 🔸 Favorites
+- JWT-based Authentication System
+- Add/remove favorite cities (stored securely)
+- View summaries in a favorites list
+
+---
+
+## 🔐 Security
+
+- **64-bit Custom Encryption** for all API responses
+- Encrypted local storage of sensitive data
+- **JWT Authentication** for protected routes
+- Secure headers and enforced HTTPS
+
+---
+
+## ⚡ Performance & Scalability
+
+- SSR / SSG for improved SEO & speed
+- CDN caching using services like **Cloudflare**
+- Docker-based containerization
+- Designed to support **100,000+ concurrent users**
+- Performance tracking using Lighthouse / Core Web Vitals
+
+---
+
+## 🧪 Testing
+
+- Unit Testing: **Jest** + **React Testing Library**
+- Integration Testing: **Cypress** or **Playwright**
+- Minimum **85%** Code Coverage (with reports)
+- Code Quality enforced with ESLint & Prettier
+
+---
+
+## 🆓 Bonus Features
+
+- ✅ PWA Support (Offline Access)
+- ✅ GraphQL Support (Optional)
+- ✅ CI/CD with **GitHub Actions**
+- ✅ Deployment: **Vercel**, **AWS Amplify**, or similar
+- ✅ Load Testing Reports using **JMeter** or **k6**
+
+---
+
+## 📦 Deliverables
+
+- ✅ GitHub Repository with full source code
+- ✅ Clean README with architecture & features
+- ✅ Working Demo / Screenshots
+- ✅ Code Coverage Report
+- ✅ Encryption/Decryption Implementation + Notes
+- ✅ Postman / Swagger API Collection
+- ✅ Load Testing Report
+- ✅ Code Review Checklist
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repo
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# git clone https://github.com/your-username/weather-app.git
