@@ -97,10 +97,3 @@ A modern, scalable, and secure weather web application built with **Next.js** an
 - ✅ Load Testing Report
 - ✅ Code Review Checklist
 
----
-
-## 🚀 Getting Started
-
-### 1. Clone the repo
-```bash
-# git clone https://github.com/your-username/weather-app.git
