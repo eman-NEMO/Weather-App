@@ -1,7 +1,7 @@
 import React from "react";
 
-export default function DaysCard(data: any) {
-  console.log(data.data.forecast ,"data");
+export default function DaysCard({data}: any) {
+  console.log(data?.forecast ,"data");
   return (
     <div className="dark:bg-blue-2 p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
       <div className=" ">
@@ -10,7 +10,7 @@ export default function DaysCard(data: any) {
   </p>
 
       <div className="divide-y divide-gray-300 dark:divide-blue-3">
-  {data.data.forecast.forecastday.map((Day, index) => (
+  {data?.forecast.forecastday.map((Day, index) => (
 
 
     

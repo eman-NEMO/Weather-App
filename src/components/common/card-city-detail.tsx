@@ -13,7 +13,7 @@ export default function CardCity(data:any) {
     <div className="text-center md:text-left">
       <h1 className="flex text-5xl md:text-6xl font-semibold text-zinc-700 dark:text-blue-5">
         {data.data?.location.name}
-        <CardCityAddFav/>
+        <CardCityAddFav data={data.data?.location.name}/>
       </h1>
      
       <p className="mt-2 text-lg text-zinc-600  dark:text-blue-4">
