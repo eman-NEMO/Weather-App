@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import WeatherCard from "@/components/common/cart-item-weather";
+import WeatherCard from "@/components/common/wetherdetails/cart-item-weather";
 import HoursCard from "@/components/common/card-item-hours";
 import useGetFavorite from "./_hooks/get-favorite-hook";
 import { useQueries } from "@tanstack/react-query";
@@ -24,7 +24,7 @@ export default function FavouritesPage() {
               queryKey: ["Weather", fav.city_name],
               queryFn: async () => {
                 const response = await fetch(
-                 ` https://api.weatherapi.com/v1/forecast.json?key=7d77b96c972b4d119a3151101212704&q=${fav.location_name}&days=3`
+                  ` https://api.weatherapi.com/v1/forecast.json?key=7d77b96c972b4d119a3151101212704&q=${fav.location_name}&days=3`,
                 );
                 const data = await response.json();
                 if ("error" in data) throw new Error(data.error.message);
@@ -46,8 +46,6 @@ export default function FavouritesPage() {
 
         return (
           <div key={index} className="container p-6 rounded-2xl shadow-lg dark:bg-blue-2 bg-white">
-            
-
             {weather.isLoading ? (
               <p>Loading weather...</p>
             ) : weather.isError ? (
@@ -56,8 +54,8 @@ export default function FavouritesPage() {
               <div className="flex flex-col md:flex-row gap-6 justify-center items-start">
                 <div className="flex-1">
                   <h2 className="text-3xl font-bold mb-6 text-zinc-800 dark:text-blue-4 text-center">
-              {cityName}
-            </h2>
+                    {cityName}
+                  </h2>
                   <HoursCard data={weather.data} />
                 </div>
                 <div className="flex-1">
