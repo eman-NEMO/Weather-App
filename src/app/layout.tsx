@@ -6,6 +6,7 @@ import Providers from "@/components/providers";
 import { Sidebar } from "lucide-react";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/common/app-sidbar";
+import { ModeToggle } from "@/components/common/mood-toggle";
 
 
 export const metadata: Metadata = {
@@ -19,17 +20,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en"  suppressHydrationWarning >
+  <html lang="en"  suppressHydrationWarning >
    <body className="dark:bg-blue-1">
-    
-
-    {/* <SidebarProvider> */}
-      {/* <AppSidebar /> */}
-        <Providers>   
-         {/* <SidebarTrigger /> */}
+        <Providers> 
+            
           {children}
-          </Providers>
-          {/* </SidebarProvider> */}
+          
+          </Providers>   
         <Toaster />
       </body>
     </html>

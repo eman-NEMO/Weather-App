@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
-import {addToFavorites} from '../_actions/favourate-action'
+import { addToFavorites } from "../_actions/favourate-action";
 import { AddFavoriteInput } from "@/lib/types/item";
 
 export default function useFavorite() {
@@ -16,16 +16,14 @@ export default function useFavorite() {
   };
 
   const { isPending, error, mutate } = useMutation({
-    mutationFn: async (FavoriteInputs: AddFavoriteInput) =>
-      await addToFavorites(FavoriteInputs),
-      onSuccess: handleSuccess,
-      onError: handleError,
+    mutationFn: async (FavoriteInputs: AddFavoriteInput) => await addToFavorites(FavoriteInputs),
+    onSuccess: handleSuccess,
+    onError: handleError,
   });
 
   const addToFavorite = (Inputs: AddFavoriteInput) => {
-    console.log(Inputs , "fav value")
-     mutate(Inputs);
+    console.log(Inputs, "fav value");
+    mutate(Inputs);
   };
   return { error, addToFavorite, isPending };
 }
-
