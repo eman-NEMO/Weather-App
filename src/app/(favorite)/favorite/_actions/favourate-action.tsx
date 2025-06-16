@@ -1,10 +1,7 @@
-import { AddFavoriteInput } from "@/lib/types/item";
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "@/components/constants/auth.supabase.constant";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+
+
 
 
 export const addToFavorites = async ({ user_id, location_name }: AddFavoriteInput) => {
