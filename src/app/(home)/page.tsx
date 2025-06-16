@@ -2,9 +2,9 @@
 import HoursCard from "@/components/common/card-item-hours";
 import { Input } from "@/components/ui/input";
 import DaysCard from "@/components/common/card-item-days";
-import WeatherCard from "@/components/common/cart-item-weather";
+import WeatherCard from "@/components/common/wetherdetails/cart-item-weather";
 import DetectLocation from "@/components/common/auto-detect-loc";
-import CardCity from "@/components/common/card-city-detail";
+import CardCity from "@/components/common/citydetails/card-city-detail";
 import { ModeToggle } from "@/components/common/mood-toggle";
 import { Heart } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -35,15 +35,16 @@ export default function Home() {
 
         <div className="flex flex-col md:flex-row flex-wrap w-full container">
           {/* left side   search input & city details */}
-          <div className="xl:w-[65%] lg:w-[65%] md:w-full sm:w-full px-4">
+          <div className="xl:w-[65%] lg:w-[65%] md:w-[65%] sm:w-full px-4">
             <div className="mt-10">
               <Input
+              
                 onKeyDown={(e) => {
                   if (e.key == "Enter") {
                     setCity(e.currentTarget.value);
                   }
                 }}
-                className="bg-zinc-200 rounded-2xl dark:bg-blue-2"
+                className="bg-zinc-200 h-12 rounded-2xl dark:bg-blue-2"
                 placeholder="Search ...... "
               />
             </div>
@@ -53,13 +54,13 @@ export default function Home() {
 
           {/* Right Side next 3 days weather   */}
 
-          <div className="mt-24  xl:w-[35%] lg:w-[35%] md:w-full sm:w-full px-4">
+          <div className="mt-24  xl:w-[35%] lg:w-[35%] md:w-[65%] sm:w-full px-4">
             <DaysCard data={payload} />
           </div>
 
           {/* weather by hours and weather details card  */}
           <div className="mt-10">
-            <div className="flex flex-wrap space-x-4 mb-20">
+            <div className="flex  space-x-4 mb-20">
               <HoursCard data={payload} />
               <WeatherCard data={payload} />
             </div>

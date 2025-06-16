@@ -1,8 +1,8 @@
 "use client";
 
-import WeatherCard from "@/components/common/cart-item-weather";
+import WeatherCard from "@/components/common/wetherdetails/cart-item-weather";
 import HoursCard from "@/components/common/card-item-hours";
-import useGetFavorite from "../(favorite)/favorite/_hooks/get-favorite-hook";
+import useGetFavorite from "./_hooks/get-favorite-hook";
 import { useQueries } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 

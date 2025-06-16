@@ -1,22 +1,23 @@
+'use client'
 import useFavorite from "@/app/(favorite)/favorite/_hooks/favourate-hook";
-import { AddFavoriteInput } from "@/lib/types/item";
-import { UUID } from "crypto";
 import { HeartPlus } from "lucide-react";
 import { useSession } from "next-auth/react";
-import React, { use } from "react";
+import React from "react";
 
-export default function CardCityAddFav({ data }: any) {
+export default function CardCityAddFav({ name }: {name:string}) {
+  
   const { addToFavorite } = useFavorite();
+  //session data
   const { data: session } = useSession();
 
-  // const locationName = data.data.;
-  console.log(session?.user, "session");
+
   return (
     <>
+    {/* Add to favorite icon  */}
       <HeartPlus
         className=" mt-7 ms-6 cursor-pointer"
         onClick={() => {
-          addToFavorite({ user_id: session?.user.id, location_name: data });
+          addToFavorite({ user_id: session?.user.id, location_name: name });
         }}
       />
     </>
